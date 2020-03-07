@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "REPORTS")
 @SequenceGenerator(name = "ReportIdSeq", sequenceName = "report_id_seq")
 @Getter
 @Setter

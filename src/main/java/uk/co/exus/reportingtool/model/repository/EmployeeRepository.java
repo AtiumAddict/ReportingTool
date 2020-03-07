@@ -7,4 +7,7 @@ import uk.co.exus.reportingtool.model.entity.employee.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {
+    boolean existsByUsername(String username);
+
+    boolean existsByEmail(String email);
 }
