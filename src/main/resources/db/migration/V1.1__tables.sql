@@ -9,7 +9,7 @@ create TABLE employees(
     comments varchar(1000),
 PRIMARY KEY (id ASC));
 
-create sequence employee_id_seq increment by 50;
+create sequence employee_id_seq START with 1000 increment by 50;
 
 create TABLE reports(
 	id bigint NOT NULL,
@@ -20,4 +20,4 @@ create TABLE reports(
     timestamp datetime2 NOT NULL,
 PRIMARY KEY (id ASC));
 
-create sequence report_id_seq increment by 50;
+create sequence report_id_seq START with 1000 increment by 50;
