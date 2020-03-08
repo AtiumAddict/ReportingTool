@@ -9,12 +9,12 @@ In order to run and test this application, you only need Java and a web browser 
 When the application runs, it will be accessible through http://localhost:8090 and http://localhost:8090/swagger-ui.html for Swagger. 
 It can be tested through Swagger or by importing the Reporting-Tool.postman_collection.json file, which can be found inside the root folder of the project
 
-###API
+### API
 
 The main entities are Report and Employee. 
 There are 3 controllers: Employee Controller, Report Controller, Employee Report Controller:
 
-## Employee
+#### Employee
 
 * createEmployee: POST: /employees: Create a new employee with the following body and receive a response with the created employee's details:
 	{
@@ -57,7 +57,7 @@ There are 3 controllers: Employee Controller, Report Controller, Employee Report
 	  "comments": "string",
 	}
 
-## Report
+#### Report
 
 * findReportsByCriteria: GET /reports: Get the a list of paginated report details, fiven the following parameters:
 	Report search parameters:
@@ -104,7 +104,7 @@ There are 3 controllers: Employee Controller, Report Controller, Employee Report
 	}
 * deleteReport: DELETE /reports/{reportId}: Delete the report with the given reportId.
 
-## Employee Report
+#### Employee Report
 
 * createReport: POST: employees/{employeeId}/reports: Create a new report for the employee with the given employeeId with the following body and receive a response with the created report's details:
 	{
