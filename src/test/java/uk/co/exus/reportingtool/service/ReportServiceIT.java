@@ -65,6 +65,20 @@ public class ReportServiceIT extends AbstractIntegrationTest {
     }
 
     @Test(expected = ResourceNotFoundException.class)
+    public void editReportOfWrongEmployeeTest() {
+        //given
+        Employee employee = EmployeeDataHelper.employee(1L);
+        employee = entityManager.persistAndFlush(employee);
+        Report report = ReportDataHelper.report(employee);
+        long reportId = (long) entityManager.persistAndGetId(report);
+        EditReportReqDto editReportReqDto = ReportDataHelper.editReportReqDto();
+
+        //when
+        // adding 404 to the existing employee's id
+        ReportResDto reportResDto = reportService.editReportOfEmployee(employee.getId() + 404, reportId, editReportReqDto);
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
     public void editNonexistentReportTest() {
         //given
         EditReportReqDto editReportReqDto = ReportDataHelper.editReportReqDto();
@@ -94,8 +108,46 @@ public class ReportServiceIT extends AbstractIntegrationTest {
         Assert.assertEquals("HIGH", reportResDto.getPriority());
     }
 
+    @Test
+    public void findReportOfEmployeeByIdTest() {
+        //given
+        Employee employee = EmployeeDataHelper.employee(1L);
+        employee = entityManager.persistAndFlush(employee);
+        Report report = ReportDataHelper.report(employee);
+        long reportId = (long) entityManager.persistAndGetId(report);
+
+        //when
+        ReportResDto reportResDto = reportService.findReportOfEmployeeById(employee.getId(), reportId);
+
+        //then
+        Assert.assertNotNull(reportResDto);
+        Assert.assertNotNull(reportResDto.getId());
+        Assert.assertEquals(reportId, reportResDto.getId().longValue());
+        Assert.assertEquals("username1", reportResDto.getUsername());
+        Assert.assertEquals("Annual Report", reportResDto.getTitle());
+        Assert.assertEquals("123", reportResDto.getDescription());
+        Assert.assertEquals("HIGH", reportResDto.getPriority());
+    }
+
     @Test(expected = ResourceNotFoundException.class)
     public void findNonexistentReportByIdTest() {
+        //given
+        Employee employee = EmployeeDataHelper.employee(1L);
+        employee = entityManager.persistAndFlush(employee);
+        Report report = ReportDataHelper.report(employee);
+        long reportId = (long) entityManager.persistAndGetId(report);
+        //when
+        ReportResDto reportResDto = reportService.findReportOfEmployeeById(employee.getId(), reportId);
+
+        //then
+        Assert.assertNotNull(reportResDto);
+
+        //when
+        reportService.findReportOfEmployeeById(404L, reportId);
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void findExistentReportOfWrongEmployeeByIdTest() {
         //when
         reportService.findReportById(404L);
     }
@@ -117,6 +169,25 @@ public class ReportServiceIT extends AbstractIntegrationTest {
         //when 
         reportService.deleteReport(reportId);
         reportService.findReportById(reportId);
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void deleteReportOfEmployeeTest() {
+        //given
+        Employee employee = EmployeeDataHelper.employee(1L);
+        employee = entityManager.persistAndFlush(employee);
+        Report report = ReportDataHelper.report(employee);
+        long reportId = (long) entityManager.persistAndGetId(report);
+
+        //when
+        ReportResDto reportResDto = reportService.findReportOfEmployeeById(employee.getId(), reportId);
+
+        //then 
+        Assert.assertNotNull(reportResDto);
+
+        //when 
+        reportService.deleteReportOfEmployee(employee.getId(), reportId);
+        reportService.findReportOfEmployeeById(employee.getId(), reportId);
     }
 
     @Test(expected = ResourceNotFoundException.class)

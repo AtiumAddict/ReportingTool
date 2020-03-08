@@ -24,19 +24,19 @@ public class ReportController {
 
     @PostMapping
     public ResponseEntity<ReportResDto> createReport(@Valid @RequestBody CreateReportReqDto createReportReqDto) {
-        log.info("createReport", createReportReqDto);
+        log.info("createReport: {}", createReportReqDto);
         return ResponseEntity.ok(reportService.createReport(createReportReqDto));
     }
 
     @GetMapping("/{reportId}")
     public ResponseEntity<ReportResDto> findReportById(@PathVariable Long reportId) {
-        log.info(reportId.toString());
+        log.info("findReportById: {}", reportId);
         return ResponseEntity.ok(reportService.findReportById(reportId));
     }
 
     @PutMapping("/{reportId}")
     public ResponseEntity<ReportResDto> editReport(@PathVariable Long reportId, @Valid @RequestBody EditReportReqDto editReportReqDto) {
-        log.info("editReport", editReportReqDto);
+        log.info("editReport with id {}: {}", reportId, editReportReqDto);
         return ResponseEntity.ok(reportService.editReport(reportId, editReportReqDto));
     }
 
@@ -49,7 +49,7 @@ public class ReportController {
 
     @GetMapping
     public ResponseEntity<Page<ReportResDto>> findReportsByCriteria(@Valid ReportSearchCriteriaDto reportSearchCriteriaDto, PageRequestParams pageRequestParams) {
-        log.info("findReportsByCriteria {}", reportSearchCriteriaDto);
+        log.info("findReportsByCriteria: {}", reportSearchCriteriaDto);
         return ResponseEntity.ok(reportService.findReportsByCriteria(reportSearchCriteriaDto, pageRequestParams));
     }
 }

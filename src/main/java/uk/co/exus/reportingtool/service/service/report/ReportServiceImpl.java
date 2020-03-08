@@ -17,8 +17,6 @@ import uk.co.exus.reportingtool.service.dto.report.ReportSearchCriteriaDto;
 import uk.co.exus.reportingtool.service.mapper.ReportMapper;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -33,9 +31,19 @@ public class ReportServiceImpl implements ReportService {
     private ReportCriteriaResolver reportCriteriaResolver;
 
     @Override
-    public ReportResDto findReportById(Long id) {
-        Report report = reportRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(Report.class, id));
+    public ReportResDto findReportById(Long reportId) {
+        Report report = reportRepository.findById(reportId)
+                .orElseThrow(() -> new ResourceNotFoundException(Report.class, reportId));
+
+        return ReportMapper.INSTANCE.toReportResDto(report);
+    }
+
+    @Override
+    public ReportResDto findReportOfEmployeeById(Long employeeId, Long reportId) {
+        Report report = reportRepository.findById(reportId)
+                .orElseThrow(() -> new ResourceNotFoundException(Report.class, reportId));
+
+        validateReportOfEmployee(employeeId, report);
 
         return ReportMapper.INSTANCE.toReportResDto(report);
     }
@@ -67,9 +75,29 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
+    public ReportResDto editReportOfEmployee(Long employeeId, Long reportId, EditReportReqDto editReportReqDto) {
+        Report report = reportRepository.findById(reportId)
+                .orElseThrow(() -> new ResourceNotFoundException(Report.class, reportId));
+
+        validateReportOfEmployee(employeeId, report);
+
+        return editReport(reportId, editReportReqDto);
+    }
+
+    @Override
     public void deleteReport(Long id) {
         Report report = reportRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(Report.class, id));
+
+        reportRepository.delete(report);
+    }
+
+    @Override
+    public void deleteReportOfEmployee(Long employeeId, Long id) {
+        Report report = reportRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(Report.class, id));
+        
+        validateReportOfEmployee(employeeId, report);
 
         reportRepository.delete(report);
     }
@@ -80,9 +108,9 @@ public class ReportServiceImpl implements ReportService {
                 .map(ReportMapper.INSTANCE::toReportResDto);
     }
 
-    @Override
-    public List<ReportResDto> findReportsByCriteria(ReportSearchCriteriaDto criteria) {
-        return reportRepository.findAll(reportCriteriaResolver.resolveReportCriteria(criteria)).stream()
-                .map(ReportMapper.INSTANCE::toReportResDto).collect(Collectors.toList());
+    private void validateReportOfEmployee(long employeeId, Report report) {
+        if (report.getEmployee().getId() != employeeId) {
+            throw new ResourceNotFoundException(Report.class);
+        }
     }
 }
