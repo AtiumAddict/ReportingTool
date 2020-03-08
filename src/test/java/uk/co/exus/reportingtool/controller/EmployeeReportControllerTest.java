@@ -1,12 +1,12 @@
-package uk.co.exus.reportingtool.controller;
+package com.company.reportingtool.controller;
 
+import com.company.reportingtool.datahelper.ReportDataHelper;
+import com.company.reportingtool.exception.ResourceNotFoundException;
+import com.company.reportingtool.service.dto.report.CreateReportReqDto;
+import com.company.reportingtool.service.dto.report.EditReportReqDto;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.http.MediaType;
-import uk.co.exus.reportingtool.datahelper.ReportDataHelper;
-import uk.co.exus.reportingtool.exception.ResourceNotFoundException;
-import uk.co.exus.reportingtool.service.dto.report.CreateReportReqDto;
-import uk.co.exus.reportingtool.service.dto.report.EditReportReqDto;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

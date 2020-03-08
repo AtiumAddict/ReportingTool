@@ -1,12 +1,12 @@
-package uk.co.exus.reportingtool.validation;
+package com.company.reportingtool.validation;
 
+import com.company.reportingtool.AbstractIntegrationTest;
+import com.company.reportingtool.datahelper.ReportDataHelper;
+import com.company.reportingtool.service.dto.report.CreateReportReqDto;
+import com.company.reportingtool.service.service.report.ReportService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import uk.co.exus.reportingtool.AbstractIntegrationTest;
-import uk.co.exus.reportingtool.datahelper.ReportDataHelper;
-import uk.co.exus.reportingtool.service.dto.report.CreateReportReqDto;
-import uk.co.exus.reportingtool.service.service.report.ReportService;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;

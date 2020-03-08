@@ -1,16 +1,16 @@
-package uk.co.exus.reportingtool.mapper;
+package com.company.reportingtool.mapper;
 
+import com.company.reportingtool.AbstractIntegrationTest;
+import com.company.reportingtool.datahelper.EmployeeDataHelper;
+import com.company.reportingtool.datahelper.ReportDataHelper;
+import com.company.reportingtool.model.entity.Employee;
+import com.company.reportingtool.model.entity.Report;
+import com.company.reportingtool.service.dto.report.CreateReportReqDto;
+import com.company.reportingtool.service.dto.report.EditReportReqDto;
+import com.company.reportingtool.service.dto.report.ReportResDto;
+import com.company.reportingtool.service.mapper.ReportMapper;
 import org.junit.Assert;
 import org.junit.Test;
-import uk.co.exus.reportingtool.AbstractIntegrationTest;
-import uk.co.exus.reportingtool.datahelper.EmployeeDataHelper;
-import uk.co.exus.reportingtool.datahelper.ReportDataHelper;
-import uk.co.exus.reportingtool.model.entity.Employee;
-import uk.co.exus.reportingtool.model.entity.Report;
-import uk.co.exus.reportingtool.service.dto.report.CreateReportReqDto;
-import uk.co.exus.reportingtool.service.dto.report.EditReportReqDto;
-import uk.co.exus.reportingtool.service.dto.report.ReportResDto;
-import uk.co.exus.reportingtool.service.mapper.ReportMapper;
 
 public class ReportMapperTest extends AbstractIntegrationTest {
 

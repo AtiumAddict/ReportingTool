@@ -1,14 +1,14 @@
-package uk.co.exus.reportingtool.mapper;
+package com.company.reportingtool.mapper;
 
+import com.company.reportingtool.AbstractIntegrationTest;
+import com.company.reportingtool.datahelper.EmployeeDataHelper;
+import com.company.reportingtool.model.entity.Employee;
+import com.company.reportingtool.service.dto.employee.CreateEmployeeReqDto;
+import com.company.reportingtool.service.dto.employee.EditEmployeeReqDto;
+import com.company.reportingtool.service.dto.employee.EmployeeDetailsResDto;
+import com.company.reportingtool.service.mapper.EmployeeMapper;
 import org.junit.Assert;
 import org.junit.Test;
-import uk.co.exus.reportingtool.AbstractIntegrationTest;
-import uk.co.exus.reportingtool.datahelper.EmployeeDataHelper;
-import uk.co.exus.reportingtool.model.entity.Employee;
-import uk.co.exus.reportingtool.service.dto.employee.CreateEmployeeReqDto;
-import uk.co.exus.reportingtool.service.dto.employee.EditEmployeeReqDto;
-import uk.co.exus.reportingtool.service.dto.employee.EmployeeDetailsResDto;
-import uk.co.exus.reportingtool.service.mapper.EmployeeMapper;
 
 public class EmployeeMapperTest extends AbstractIntegrationTest {
 
@@ -26,7 +26,7 @@ public class EmployeeMapperTest extends AbstractIntegrationTest {
         Assert.assertEquals("firstName", employeeDetailsResDto.getFirstName());
         Assert.assertEquals("lastName", employeeDetailsResDto.getLastName());
         Assert.assertEquals("username1", employeeDetailsResDto.getUsername());
-        Assert.assertEquals("email1@exus.co.uk", employeeDetailsResDto.getEmail());
+        Assert.assertEquals("email1@company.co.uk", employeeDetailsResDto.getEmail());
         Assert.assertEquals("FEMALE", employeeDetailsResDto.getGender());
         Assert.assertEquals("MS", employeeDetailsResDto.getTitle());
     }
@@ -43,7 +43,7 @@ public class EmployeeMapperTest extends AbstractIntegrationTest {
         Assert.assertEquals("Karl", employee.getFirstName());
         Assert.assertEquals("Pilkington", employee.getLastName());
         Assert.assertEquals("kpilkington", employee.getUsername());
-        Assert.assertEquals("k.pilkington@exus.co.uk", employee.getEmail());
+        Assert.assertEquals("k.pilkington@company.co.uk", employee.getEmail());
         Assert.assertEquals(Employee.Gender.MALE, employee.getGender());
         Assert.assertEquals(Employee.Title.MR, employee.getTitle());
     }
@@ -61,7 +61,7 @@ public class EmployeeMapperTest extends AbstractIntegrationTest {
         Assert.assertEquals("Karl", employee.getFirstName());
         Assert.assertEquals("Pilkington", employee.getLastName());
         Assert.assertEquals("username1", employee.getUsername()); // remains the same
-        Assert.assertEquals("email1@exus.co.uk", employee.getEmail()); // remains the same
+        Assert.assertEquals("email1@company.co.uk", employee.getEmail()); // remains the same
         Assert.assertEquals(Employee.Gender.MALE, employee.getGender());
         Assert.assertEquals(Employee.Title.MR, employee.getTitle());
     }

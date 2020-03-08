@@ -1,13 +1,13 @@
-package uk.co.exus.reportingtool.validation;
+package com.company.reportingtool.validation;
 
+import com.company.reportingtool.AbstractIntegrationTest;
+import com.company.reportingtool.datahelper.EmployeeDataHelper;
+import com.company.reportingtool.model.entity.Employee;
+import com.company.reportingtool.service.dto.employee.EditEmployeeReqDto;
+import com.company.reportingtool.service.service.employee.EmployeeService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import uk.co.exus.reportingtool.AbstractIntegrationTest;
-import uk.co.exus.reportingtool.datahelper.EmployeeDataHelper;
-import uk.co.exus.reportingtool.model.entity.Employee;
-import uk.co.exus.reportingtool.service.dto.employee.EditEmployeeReqDto;
-import uk.co.exus.reportingtool.service.service.employee.EmployeeService;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;

@@ -8,7 +8,7 @@
 		<version>2.2.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>uk.co.exus</groupId>
+	<groupId>com.company</groupId>
 	<artifactId>reporting-tool</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>reporting-tool</name>

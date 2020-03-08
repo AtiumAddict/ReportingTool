@@ -1,12 +1,12 @@
-package uk.co.exus.reportingtool.controller;
+package com.company.reportingtool.controller;
 
+import com.company.reportingtool.datahelper.EmployeeDataHelper;
+import com.company.reportingtool.exception.ResourceNotFoundException;
+import com.company.reportingtool.service.dto.employee.CreateEmployeeReqDto;
+import com.company.reportingtool.service.dto.employee.EditEmployeeReqDto;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.http.MediaType;
-import uk.co.exus.reportingtool.datahelper.EmployeeDataHelper;
-import uk.co.exus.reportingtool.exception.ResourceNotFoundException;
-import uk.co.exus.reportingtool.service.dto.employee.CreateEmployeeReqDto;
-import uk.co.exus.reportingtool.service.dto.employee.EditEmployeeReqDto;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -23,7 +23,7 @@ public class EmployeeControllerTest extends AbstractMvcTest {
         mockMvc.perform(get("/employees/1"))
                 .andExpect(jsonPath("$.firstName", is("Karl")))
                 .andExpect(jsonPath("$.lastName", is("Pilkington")))
-                .andExpect(jsonPath("$.email", is("k.pilkington@exus.co.uk")))
+                .andExpect(jsonPath("$.email", is("k.pilkington@company.co.uk")))
                 .andExpect(status().isOk());
     }
 
@@ -49,7 +49,7 @@ public class EmployeeControllerTest extends AbstractMvcTest {
                 .content(objectMapper.writeValueAsString(createEmployeeReqDto)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.comments", is("Karl is the best")))
-                .andExpect(jsonPath("$.email", is("k.pilkington@exus.co.uk")))
+                .andExpect(jsonPath("$.email", is("k.pilkington@company.co.uk")))
                 .andExpect(jsonPath("$.firstName", is("Karl")));
     }
 
@@ -65,7 +65,7 @@ public class EmployeeControllerTest extends AbstractMvcTest {
                 .content(objectMapper.writeValueAsString(editEmployeeReqDto)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.comments", is("Karl is the best")))
-                .andExpect(jsonPath("$.email", is("k.pilkington@exus.co.uk")))
+                .andExpect(jsonPath("$.email", is("k.pilkington@company.co.uk")))
                 .andExpect(jsonPath("$.firstName", is("Karl")));
     }
 
@@ -79,7 +79,7 @@ public class EmployeeControllerTest extends AbstractMvcTest {
                 .param("username", "kpilkington"))
                 .andExpect(jsonPath("$.firstName", is("Karl")))
                 .andExpect(jsonPath("$.lastName", is("Pilkington")))
-                .andExpect(jsonPath("$.email", is("k.pilkington@exus.co.uk")))
+                .andExpect(jsonPath("$.email", is("k.pilkington@company.co.uk")))
                 .andExpect(status().isOk());
     }
 }

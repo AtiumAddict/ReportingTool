@@ -1,10 +1,10 @@
-package uk.co.exus.reportingtool.datahelper;
+package com.company.reportingtool.datahelper;
 
-import uk.co.exus.reportingtool.model.entity.Employee;
-import uk.co.exus.reportingtool.model.entity.Report;
-import uk.co.exus.reportingtool.service.dto.report.CreateReportReqDto;
-import uk.co.exus.reportingtool.service.dto.report.EditReportReqDto;
-import uk.co.exus.reportingtool.service.dto.report.ReportResDto;
+import com.company.reportingtool.model.entity.Employee;
+import com.company.reportingtool.model.entity.Report;
+import com.company.reportingtool.service.dto.report.CreateReportReqDto;
+import com.company.reportingtool.service.dto.report.EditReportReqDto;
+import com.company.reportingtool.service.dto.report.ReportResDto;
 
 public class ReportDataHelper {
     public static Report report(Employee employee) {

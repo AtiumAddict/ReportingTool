@@ -1,21 +1,21 @@
-package uk.co.exus.reportingtool.service;
+package com.company.reportingtool.service;
 
+import com.company.reportingtool.AbstractIntegrationTest;
+import com.company.reportingtool.datahelper.EmployeeDataHelper;
+import com.company.reportingtool.datahelper.ReportDataHelper;
+import com.company.reportingtool.exception.ResourceNotFoundException;
+import com.company.reportingtool.model.entity.Employee;
+import com.company.reportingtool.model.entity.Report;
+import com.company.reportingtool.service.dto.PageRequestParams;
+import com.company.reportingtool.service.dto.report.CreateReportReqDto;
+import com.company.reportingtool.service.dto.report.EditReportReqDto;
+import com.company.reportingtool.service.dto.report.ReportResDto;
+import com.company.reportingtool.service.dto.report.ReportSearchCriteriaDto;
+import com.company.reportingtool.service.service.report.ReportService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import uk.co.exus.reportingtool.AbstractIntegrationTest;
-import uk.co.exus.reportingtool.datahelper.EmployeeDataHelper;
-import uk.co.exus.reportingtool.datahelper.ReportDataHelper;
-import uk.co.exus.reportingtool.exception.ResourceNotFoundException;
-import uk.co.exus.reportingtool.model.entity.Employee;
-import uk.co.exus.reportingtool.model.entity.Report;
-import uk.co.exus.reportingtool.service.dto.PageRequestParams;
-import uk.co.exus.reportingtool.service.dto.report.CreateReportReqDto;
-import uk.co.exus.reportingtool.service.dto.report.EditReportReqDto;
-import uk.co.exus.reportingtool.service.dto.report.ReportResDto;
-import uk.co.exus.reportingtool.service.dto.report.ReportSearchCriteriaDto;
-import uk.co.exus.reportingtool.service.service.report.ReportService;
 
 import java.util.ArrayList;
 import java.util.List;

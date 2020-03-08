@@ -1,16 +1,16 @@
-package uk.co.exus.reportingtool.service;
+package com.company.reportingtool.service;
 
+import com.company.reportingtool.AbstractIntegrationTest;
+import com.company.reportingtool.datahelper.EmployeeDataHelper;
+import com.company.reportingtool.exception.ResourceNotFoundException;
+import com.company.reportingtool.model.entity.Employee;
+import com.company.reportingtool.service.dto.employee.CreateEmployeeReqDto;
+import com.company.reportingtool.service.dto.employee.EditEmployeeReqDto;
+import com.company.reportingtool.service.dto.employee.EmployeeDetailsResDto;
+import com.company.reportingtool.service.service.employee.EmployeeService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import uk.co.exus.reportingtool.AbstractIntegrationTest;
-import uk.co.exus.reportingtool.datahelper.EmployeeDataHelper;
-import uk.co.exus.reportingtool.exception.ResourceNotFoundException;
-import uk.co.exus.reportingtool.model.entity.Employee;
-import uk.co.exus.reportingtool.service.dto.employee.CreateEmployeeReqDto;
-import uk.co.exus.reportingtool.service.dto.employee.EditEmployeeReqDto;
-import uk.co.exus.reportingtool.service.dto.employee.EmployeeDetailsResDto;
-import uk.co.exus.reportingtool.service.service.employee.EmployeeService;
 
 public class EmployeeServiceIT extends AbstractIntegrationTest {
     @Autowired
@@ -30,7 +30,7 @@ public class EmployeeServiceIT extends AbstractIntegrationTest {
         Assert.assertEquals("Karl", employeeDetailsResDto.getFirstName());
         Assert.assertEquals("Pilkington", employeeDetailsResDto.getLastName());
         Assert.assertEquals("kpilkington", employeeDetailsResDto.getUsername());
-        Assert.assertEquals("k.pilkington@exus.co.uk", employeeDetailsResDto.getEmail());
+        Assert.assertEquals("k.pilkington@company.co.uk", employeeDetailsResDto.getEmail());
         Assert.assertEquals("MALE", employeeDetailsResDto.getGender());
     }
 
@@ -50,7 +50,7 @@ public class EmployeeServiceIT extends AbstractIntegrationTest {
         Assert.assertEquals("Karl", employeeDetailsResDto.getFirstName());
         Assert.assertEquals("Pilkington", employeeDetailsResDto.getLastName());
         Assert.assertEquals("username1", employeeDetailsResDto.getUsername());
-        Assert.assertEquals("email1@exus.co.uk", employeeDetailsResDto.getEmail());
+        Assert.assertEquals("email1@company.co.uk", employeeDetailsResDto.getEmail());
         Assert.assertEquals("MALE", employeeDetailsResDto.getGender());
     }
 
@@ -79,7 +79,7 @@ public class EmployeeServiceIT extends AbstractIntegrationTest {
         Assert.assertEquals("firstName", employeeDetailsResDto.getFirstName());
         Assert.assertEquals("lastName", employeeDetailsResDto.getLastName());
         Assert.assertEquals("username1", employeeDetailsResDto.getUsername());
-        Assert.assertEquals("email1@exus.co.uk", employeeDetailsResDto.getEmail());
+        Assert.assertEquals("email1@company.co.uk", employeeDetailsResDto.getEmail());
         Assert.assertEquals("FEMALE", employeeDetailsResDto.getGender());
     }
 
@@ -99,7 +99,7 @@ public class EmployeeServiceIT extends AbstractIntegrationTest {
         Assert.assertEquals("firstName", employeeDetailsResDto.getFirstName());
         Assert.assertEquals("lastName", employeeDetailsResDto.getLastName());
         Assert.assertEquals("username1", employeeDetailsResDto.getUsername());
-        Assert.assertEquals("email1@exus.co.uk", employeeDetailsResDto.getEmail());
+        Assert.assertEquals("email1@company.co.uk", employeeDetailsResDto.getEmail());
         Assert.assertEquals("FEMALE", employeeDetailsResDto.getGender());
     }
 }

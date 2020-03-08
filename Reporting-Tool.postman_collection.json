@@ -19,7 +19,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Brett\",\n\t\"username\": \"pbrett\",\n\t\"email\": \"p.brett@exus.co.uk\",\n\t\"gender\": \"MALE\"\n}",
+          "raw": "{\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Brett\",\n\t\"username\": \"pbrett\",\n\t\"email\": \"p.brett@company.co.uk\",\n\t\"gender\": \"MALE\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -54,7 +54,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Brett\",\n\t\"username\": \"pbrett\",\n\t\"email\": \"p.brett@exus.co.uk\",\n\t\"gender\": \"MALE\"\n}",
+          "raw": "{\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Brett\",\n\t\"username\": \"pbrett\",\n\t\"email\": \"p.brett@company.co.uk\",\n\t\"gender\": \"MALE\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -131,7 +131,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Brett\",\n\t\"username\": \"pbrett\",\n\t\"email\": \"p.brett@exus.co.uk\",\n\t\"gender\": \"MALE\"\n}",
+          "raw": "{\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Brett\",\n\t\"username\": \"pbrett\",\n\t\"email\": \"p.brett@company.co.uk\",\n\t\"gender\": \"MALE\"\n}",
           "options": {
             "raw": {
               "language": "json"

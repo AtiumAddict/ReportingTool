@@ -1,9 +1,9 @@
-package uk.co.exus.reportingtool.datahelper;
+package com.company.reportingtool.datahelper;
 
-import uk.co.exus.reportingtool.model.entity.Employee;
-import uk.co.exus.reportingtool.service.dto.employee.CreateEmployeeReqDto;
-import uk.co.exus.reportingtool.service.dto.employee.EditEmployeeReqDto;
-import uk.co.exus.reportingtool.service.dto.employee.EmployeeDetailsResDto;
+import com.company.reportingtool.model.entity.Employee;
+import com.company.reportingtool.service.dto.employee.CreateEmployeeReqDto;
+import com.company.reportingtool.service.dto.employee.EditEmployeeReqDto;
+import com.company.reportingtool.service.dto.employee.EmployeeDetailsResDto;
 
 public class EmployeeDataHelper {
     public static Employee employee(long id) {
@@ -11,7 +11,7 @@ public class EmployeeDataHelper {
         employee.setFirstName("firstName");
         employee.setLastName("lastName");
         employee.setUsername("username" + id);
-        employee.setEmail("email" + id + "@exus.co.uk");
+        employee.setEmail("email" + id + "@company.co.uk");
         employee.setTitle(Employee.Title.MS);
         employee.setGender(Employee.Gender.FEMALE);
         employee.setComments("comments");
@@ -25,7 +25,7 @@ public class EmployeeDataHelper {
                 .firstName("Karl")
                 .lastName("Pilkington")
                 .username("kpilkington")
-                .email("k.pilkington@exus.co.uk")
+                .email("k.pilkington@company.co.uk")
                 .gender("MALE")
                 .comments("Karl is the best")
                 .build();
@@ -42,7 +42,7 @@ public class EmployeeDataHelper {
 
     public static CreateEmployeeReqDto duplicateEmailCreateNewEmployeeReqDto() {
         CreateEmployeeReqDto newEmployeeReqDto = createNewEmployeeReqDto();
-        newEmployeeReqDto.setEmail("email1@exus.co.uk");
+        newEmployeeReqDto.setEmail("email1@company.co.uk");
 
         return newEmployeeReqDto;
     }
@@ -66,7 +66,7 @@ public class EmployeeDataHelper {
                 .firstName("Karl")
                 .lastName("Pilkington")
                 .username("kpilkington")
-                .email("k.pilkington@exus.co.uk")
+                .email("k.pilkington@company.co.uk")
                 .gender("MALE")
                 .comments("Karl is the best")
                 .build();

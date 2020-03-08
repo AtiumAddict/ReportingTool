@@ -1,4 +1,4 @@
-package uk.co.exus.reportingtool;
+package com.company.reportingtool;
 
 import org.junit.After;
 import org.junit.Before;

@@ -1,5 +1,8 @@
-package uk.co.exus.reportingtool.controller;
+package com.company.reportingtool.controller;
 
+import com.company.reportingtool.ReportingToolApplication;
+import com.company.reportingtool.service.service.employee.EmployeeService;
+import com.company.reportingtool.service.service.report.ReportService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
@@ -11,9 +14,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import uk.co.exus.reportingtool.ReportingToolApplication;
-import uk.co.exus.reportingtool.service.service.employee.EmployeeService;
-import uk.co.exus.reportingtool.service.service.report.ReportService;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
