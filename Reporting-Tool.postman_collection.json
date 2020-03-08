@@ -1,0 +1,623 @@
+{
+  "info": {
+    "_postman_id": "72557495-b586-4cdb-ac6f-d53804b7b1f9",
+    "name": "Reporting-Tool",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create New Employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Brett\",\n\t\"username\": \"pbrett\",\n\t\"email\": \"p.brett@exus.co.uk\",\n\t\"gender\": \"MALE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Try to create New Employee with duplicate username and email",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Brett\",\n\t\"username\": \"pbrett\",\n\t\"email\": \"p.brett@exus.co.uk\",\n\t\"gender\": \"MALE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Employee By Id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Employee By Username",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"firstName\": \"Peter\",\n\t\"lastName\": \"Brett\",\n\t\"username\": \"pbrett\",\n\t\"email\": \"p.brett@exus.co.uk\",\n\t\"gender\": \"MALE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees/?username=pbrett",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees",
+            ""
+          ],
+          "query": [
+            {
+              "key": "username",
+              "value": "pbrett"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Edit Employee",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"firstName\": \"John\",\n\t\"lastName\": \"Hughes\",\n\t\"gender\": \"MALE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create report for employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"employeeId\": 1,\r\n  \"title\": \"Daily report\",\r\n  \"description\": \"A report\",\r\n  \"priority\": \"LOW\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees/1/reports/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees",
+            "1",
+            "reports",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search for Reports by username",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/reports/?username=hay",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "reports",
+            ""
+          ],
+          "query": [
+            {
+              "key": "username",
+              "value": "hay"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search for Reports by username and priority",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/reports?username=hay&priority=LOW",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "reports"
+          ],
+          "query": [
+            {
+              "key": "username",
+              "value": "hay"
+            },
+            {
+              "key": "priority",
+              "value": "LOW"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search for Reports by priority sorted by createdOn desc",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/reports?priority=HIGH&direction=desc&sort=createdOn",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "reports"
+          ],
+          "query": [
+            {
+              "key": "priority",
+              "value": "HIGH"
+            },
+            {
+              "key": "direction",
+              "value": "desc"
+            },
+            {
+              "key": "sort",
+              "value": "createdOn"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Report of employee by id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees/26/reports/86",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees",
+            "26",
+            "reports",
+            "86"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Report of wrong employee by id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees/36/reports/86",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees",
+            "36",
+            "reports",
+            "86"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Edit report of employee",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Edited Report Title\",\r\n    \"description\": \"Edited Report Description\",\r\n    \"priority\": \"LOW\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees/26/reports/86",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees",
+            "26",
+            "reports",
+            "86"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "View edited report",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Edited Report Title\",\r\n    \"description\": \"Edited Report Description\",\r\n    \"priority\": \"LOW\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees/26/reports/86",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees",
+            "26",
+            "reports",
+            "86"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete report",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Edited Report Title\",\r\n    \"description\": \"Edited Report Description\",\r\n    \"priority\": \"LOW\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees/26/reports/86",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees",
+            "26",
+            "reports",
+            "86"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Try to view deleted report",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Edited Report Title\",\r\n    \"description\": \"Edited Report Description\",\r\n    \"priority\": \"LOW\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8090/employees/26/reports/86",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "employees",
+            "26",
+            "reports",
+            "86"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
