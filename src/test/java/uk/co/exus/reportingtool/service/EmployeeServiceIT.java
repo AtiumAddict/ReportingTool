@@ -10,7 +10,7 @@ import uk.co.exus.reportingtool.model.entity.employee.Employee;
 import uk.co.exus.reportingtool.service.dto.employee.CreateEmployeeReqDto;
 import uk.co.exus.reportingtool.service.dto.employee.EditEmployeeReqDto;
 import uk.co.exus.reportingtool.service.dto.employee.EmployeeDetailsResDto;
-import uk.co.exus.reportingtool.service.service.EmployeeService;
+import uk.co.exus.reportingtool.service.service.employee.EmployeeService;
 
 public class EmployeeServiceIT extends AbstractIntegrationTest {
     @Autowired
@@ -60,6 +60,26 @@ public class EmployeeServiceIT extends AbstractIntegrationTest {
         EditEmployeeReqDto editEmployeeReqDto = EmployeeDataHelper.editEmployeeReqDto();
 
         //when
-        EmployeeDetailsResDto employeeDetailsResDto = employeeService.editEmployee(100L, editEmployeeReqDto);
+        EmployeeDetailsResDto employeeDetailsResDto = employeeService.editEmployee(404L, editEmployeeReqDto);
+    }
+
+    @Test
+    public void findEmployeeByIdTest() {
+        //given
+        Employee employee = EmployeeDataHelper.employee(1L);
+        long id = (Long) entityManager.persistAndGetId(employee);
+
+        //when
+        EmployeeDetailsResDto employeeDetailsResDto = employeeService.findEmployeeById(id);
+
+        //then
+        Assert.assertNotNull(employeeDetailsResDto);
+        Assert.assertNotNull(employeeDetailsResDto.getId());
+        Assert.assertEquals("MS", employeeDetailsResDto.getTitle());
+        Assert.assertEquals("firstName", employeeDetailsResDto.getFirstName());
+        Assert.assertEquals("lastName", employeeDetailsResDto.getLastName());
+        Assert.assertEquals("username1", employeeDetailsResDto.getUsername());
+        Assert.assertEquals("email1@exus.co.uk", employeeDetailsResDto.getEmail());
+        Assert.assertEquals("FEMALE", employeeDetailsResDto.getGender());
     }
 }

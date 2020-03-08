@@ -30,10 +30,10 @@ public class EmployeeControllerTest extends AbstractMvcTest {
     @Test
     public void findNonExistentEmployeeByIdTest() throws Exception {
         //when
-        Mockito.when(employeeService.findEmployeeById(2L)).thenThrow(ResourceNotFoundException.class);
+        Mockito.when(employeeService.findEmployeeById(404L)).thenThrow(ResourceNotFoundException.class);
 
         //then
-        mockMvc.perform(get("/employees/2"))
+        mockMvc.perform(get("/employees/404"))
                 .andExpect(status().isNotFound());
     }
 

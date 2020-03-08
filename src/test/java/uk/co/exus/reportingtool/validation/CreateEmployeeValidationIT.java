@@ -7,15 +7,14 @@ import uk.co.exus.reportingtool.AbstractIntegrationTest;
 import uk.co.exus.reportingtool.datahelper.EmployeeDataHelper;
 import uk.co.exus.reportingtool.model.entity.employee.Employee;
 import uk.co.exus.reportingtool.service.dto.employee.CreateEmployeeReqDto;
-import uk.co.exus.reportingtool.service.service.EmployeeService;
-import uk.co.exus.reportingtool.service.validation.ValidationSequence;
+import uk.co.exus.reportingtool.service.service.employee.EmployeeService;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class CreateNewEmployeeValidationIT extends AbstractIntegrationTest {
+public class CreateEmployeeValidationIT extends AbstractIntegrationTest {
     @Autowired
     private Validator validator;
 
@@ -28,7 +27,7 @@ public class CreateNewEmployeeValidationIT extends AbstractIntegrationTest {
         CreateEmployeeReqDto createEmployeeReqDto = EmployeeDataHelper.createNewEmployeeReqDto();
 
         //when
-        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(createEmployeeReqDto, ValidationSequence.class);
+        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(createEmployeeReqDto);
 
         //then
         Assert.assertEquals(0, constraintViolations.size());
@@ -43,7 +42,7 @@ public class CreateNewEmployeeValidationIT extends AbstractIntegrationTest {
         CreateEmployeeReqDto duplicateUsernameCreateEmployeeReqDto = EmployeeDataHelper.duplicateUsernameCreateNewEmployeeReqDto();
 
         //when
-        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(duplicateUsernameCreateEmployeeReqDto, ValidationSequence.class);
+        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(duplicateUsernameCreateEmployeeReqDto);
 
         //then
         Assert.assertEquals(1, constraintViolations.size());
@@ -62,7 +61,7 @@ public class CreateNewEmployeeValidationIT extends AbstractIntegrationTest {
         CreateEmployeeReqDto duplicateEmailCreateEmployeeReqDto = EmployeeDataHelper.duplicateEmailCreateNewEmployeeReqDto();
 
         //when
-        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(duplicateEmailCreateEmployeeReqDto, ValidationSequence.class);
+        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(duplicateEmailCreateEmployeeReqDto);
 
         //then
         Assert.assertEquals(1, constraintViolations.size());
@@ -79,7 +78,7 @@ public class CreateNewEmployeeValidationIT extends AbstractIntegrationTest {
         createEmployeeReqDto.setEmail("invalid email");
 
         //when
-        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(createEmployeeReqDto, ValidationSequence.class);
+        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(createEmployeeReqDto);
 
         //then
         Assert.assertEquals(1, constraintViolations.size());
@@ -96,7 +95,7 @@ public class CreateNewEmployeeValidationIT extends AbstractIntegrationTest {
         createEmployeeReqDto.setTitle("invalid title");
 
         //when
-        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(createEmployeeReqDto, ValidationSequence.class);
+        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(createEmployeeReqDto);
 
         //then
         Assert.assertEquals(1, constraintViolations.size());
@@ -116,7 +115,7 @@ public class CreateNewEmployeeValidationIT extends AbstractIntegrationTest {
         createEmployeeReqDto.setGender("invalid gender");
 
         //when
-        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(createEmployeeReqDto, ValidationSequence.class);
+        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(createEmployeeReqDto);
 
         //then
         Assert.assertEquals(1, constraintViolations.size());

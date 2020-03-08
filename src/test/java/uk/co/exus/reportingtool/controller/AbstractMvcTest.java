@@ -12,8 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import uk.co.exus.reportingtool.ReportingToolApplication;
-import uk.co.exus.reportingtool.model.repository.EmployeeRepository;
-import uk.co.exus.reportingtool.service.service.EmployeeService;
+import uk.co.exus.reportingtool.service.service.employee.EmployeeService;
+import uk.co.exus.reportingtool.service.service.report.ReportService;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
@@ -25,10 +25,10 @@ public abstract class AbstractMvcTest {
     protected MockMvc mockMvc;
 
     @MockBean
-    protected EmployeeRepository employeeRepository;
+    protected EmployeeService employeeService;
 
     @MockBean
-    protected EmployeeService employeeService;
+    protected ReportService reportService;
 
     @Autowired
     protected ObjectMapper objectMapper;

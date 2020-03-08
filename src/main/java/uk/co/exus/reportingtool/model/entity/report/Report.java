@@ -16,39 +16,43 @@ import java.time.LocalDateTime;
 public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ReportIdSeq")
-    @Column(name = "id")
+    @Column(name = "ID")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "employee_id", nullable = false)
+    @JoinColumn(name = "EMPLOYEE_ID", nullable = false)
     private Employee employee;
 
-    @Column(name = "title")
+    @Column(name = "TITLE", nullable = false)
     private String title;
 
-    @Column(name = "description", length = 1000)
+    @Column(name = "DESCRIPTION", length = 1000)
     private String description;
 
     public enum Priority {
-        HIGH(), LOW
+        HIGH, LOW
     }
 
-    @Column(name = "priority", length = 50)
+    @Column(name = "PRIORITY", length = 50, nullable = false)
     @Enumerated(EnumType.STRING)
-    private Priority priority;
+    private Priority priority = Priority.LOW;
 
-    @Column(name = "timestamp")
+    @Column(name = "CREATED_ON", nullable = false)
     @Setter(value = AccessLevel.NONE)
-    private LocalDateTime timestamp;
+    private LocalDateTime createdOn;
+
+    @Column(name = "EDITED_ON")
+    @Setter(value = AccessLevel.NONE)
+    private LocalDateTime editedOn;
 
     @PrePersist
     public void onPersist() {
-        timestamp = LocalDateTime.now();
+        this.createdOn = LocalDateTime.now();
+        this.editedOn = LocalDateTime.now();
     }
 
-    @PreUpdate
-    public void onUpdate() {
-        timestamp = LocalDateTime.now();
+    public void setEdited(LocalDateTime localDateTime) {
+        this.editedOn = localDateTime;
     }
 
     @Override

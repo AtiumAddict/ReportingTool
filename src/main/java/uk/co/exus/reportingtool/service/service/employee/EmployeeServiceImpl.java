@@ -1,4 +1,4 @@
-package uk.co.exus.reportingtool.service.service;
+package uk.co.exus.reportingtool.service.service.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import uk.co.exus.reportingtool.service.mapper.EmployeeMapper;
 
 @Service
 @Transactional
-public class EmployeeServiceImpl implements EmployeeService, FieldValueExists {
+public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 

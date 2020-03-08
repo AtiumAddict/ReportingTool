@@ -24,7 +24,7 @@ public class ResourceNotFoundException extends RuntimeException {
             }
         }
         if (clazz != null) {
-            sb.append("type ").append(clazz.getSimpleName()).append(" ");
+            sb.append("type ").append(clazz.getSimpleName());
         }
         sb.append(" not found ");
         return sb.toString();
