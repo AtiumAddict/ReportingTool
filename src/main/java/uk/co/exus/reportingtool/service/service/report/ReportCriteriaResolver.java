@@ -1,10 +1,10 @@
-package uk.co.exus.reportingtool.service.service;
+package uk.co.exus.reportingtool.service.service.report;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import uk.co.exus.reportingtool.model.entity.report.Report;
+import uk.co.exus.reportingtool.model.entity.Report;
 import uk.co.exus.reportingtool.service.dto.PageRequestParams;
 import uk.co.exus.reportingtool.service.dto.report.ReportSearchCriteriaDto;
 

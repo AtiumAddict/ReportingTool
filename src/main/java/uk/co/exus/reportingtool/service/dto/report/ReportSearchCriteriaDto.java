@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import uk.co.exus.reportingtool.model.entity.report.Report;
+import uk.co.exus.reportingtool.model.entity.Report;
 import uk.co.exus.reportingtool.service.validation.constraint.ReportSearchCriteriaDtoConstraint;
 import uk.co.exus.reportingtool.service.validation.constraint.ValueOfEnum;
 

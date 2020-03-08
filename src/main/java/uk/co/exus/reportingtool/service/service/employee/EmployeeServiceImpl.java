@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import uk.co.exus.reportingtool.exception.ResourceNotFoundException;
-import uk.co.exus.reportingtool.model.entity.employee.Employee;
+import uk.co.exus.reportingtool.model.entity.Employee;
 import uk.co.exus.reportingtool.model.repository.EmployeeRepository;
 import uk.co.exus.reportingtool.service.dto.employee.CreateEmployeeReqDto;
 import uk.co.exus.reportingtool.service.dto.employee.EditEmployeeReqDto;

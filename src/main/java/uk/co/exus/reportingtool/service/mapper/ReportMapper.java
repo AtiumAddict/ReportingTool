@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
-import uk.co.exus.reportingtool.model.entity.report.Report;
+import uk.co.exus.reportingtool.model.entity.Report;
 import uk.co.exus.reportingtool.service.dto.report.CreateReportReqDto;
 import uk.co.exus.reportingtool.service.dto.report.EditReportReqDto;
 import uk.co.exus.reportingtool.service.dto.report.ReportResDto;

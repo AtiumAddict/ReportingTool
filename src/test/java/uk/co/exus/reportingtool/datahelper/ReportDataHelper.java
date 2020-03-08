@@ -1,7 +1,7 @@
 package uk.co.exus.reportingtool.datahelper;
 
-import uk.co.exus.reportingtool.model.entity.employee.Employee;
-import uk.co.exus.reportingtool.model.entity.report.Report;
+import uk.co.exus.reportingtool.model.entity.Employee;
+import uk.co.exus.reportingtool.model.entity.Report;
 import uk.co.exus.reportingtool.service.dto.report.CreateReportReqDto;
 import uk.co.exus.reportingtool.service.dto.report.EditReportReqDto;
 import uk.co.exus.reportingtool.service.dto.report.ReportResDto;

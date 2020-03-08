@@ -1,8 +1,8 @@
-package uk.co.exus.reportingtool.service.service;
+package uk.co.exus.reportingtool.service.service.report;
 
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import uk.co.exus.reportingtool.model.entity.report.Report;
+import uk.co.exus.reportingtool.model.entity.Report;
 
 /**
  * Contains all of the search filters when querying for {@link Report}.

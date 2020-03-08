@@ -1,8 +1,7 @@
-package uk.co.exus.reportingtool.model.entity.employee;
+package uk.co.exus.reportingtool.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import uk.co.exus.reportingtool.model.entity.report.Report;
 
 import javax.persistence.*;
 import java.util.ArrayList;

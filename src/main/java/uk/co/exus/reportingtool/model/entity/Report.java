@@ -1,9 +1,8 @@
-package uk.co.exus.reportingtool.model.entity.report;
+package uk.co.exus.reportingtool.model.entity;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import uk.co.exus.reportingtool.model.entity.employee.Employee;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

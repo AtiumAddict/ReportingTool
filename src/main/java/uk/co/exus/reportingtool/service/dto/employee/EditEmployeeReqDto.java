@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import uk.co.exus.reportingtool.model.entity.employee.Employee;
+import uk.co.exus.reportingtool.model.entity.Employee;
 import uk.co.exus.reportingtool.service.validation.constraint.ValueOfEnum;
 
 import javax.validation.constraints.NotNull;

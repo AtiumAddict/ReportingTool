@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import uk.co.exus.reportingtool.AbstractIntegrationTest;
 import uk.co.exus.reportingtool.datahelper.EmployeeDataHelper;
 import uk.co.exus.reportingtool.exception.ResourceNotFoundException;
-import uk.co.exus.reportingtool.model.entity.employee.Employee;
+import uk.co.exus.reportingtool.model.entity.Employee;
 import uk.co.exus.reportingtool.service.dto.employee.CreateEmployeeReqDto;
 import uk.co.exus.reportingtool.service.dto.employee.EditEmployeeReqDto;
 import uk.co.exus.reportingtool.service.dto.employee.EmployeeDetailsResDto;
