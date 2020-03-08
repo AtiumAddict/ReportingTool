@@ -68,4 +68,18 @@ public class EmployeeControllerTest extends AbstractMvcTest {
                 .andExpect(jsonPath("$.email", is("k.pilkington@exus.co.uk")))
                 .andExpect(jsonPath("$.firstName", is("Karl")));
     }
+
+    @Test
+    public void findEmployeeByUsernameTest() throws Exception {
+        //when
+        Mockito.when(employeeService.findEmployeeByUsername("kpilkington")).thenReturn(EmployeeDataHelper.employeeDetailsResDto(1));
+
+        //then
+        mockMvc.perform(get("/employees")
+                .param("username", "kpilkington"))
+                .andExpect(jsonPath("$.firstName", is("Karl")))
+                .andExpect(jsonPath("$.lastName", is("Pilkington")))
+                .andExpect(jsonPath("$.email", is("k.pilkington@exus.co.uk")))
+                .andExpect(status().isOk());
+    }
 }

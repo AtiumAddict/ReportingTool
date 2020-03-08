@@ -45,6 +45,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public EmployeeDetailsResDto findEmployeeByUsername(String username) {
+        Employee employee = employeeRepository.findByUsername(username)
+                .orElseThrow(() -> new ResourceNotFoundException(Employee.class, username));
+
+        return EmployeeMapper.INSTANCE.toEmployeeDetailsResDto(employee);
+    }
+
+    @Override
     public boolean fieldValueExists(Object value, String fieldName) throws UnsupportedOperationException {
         if (value == null) {
             return false;

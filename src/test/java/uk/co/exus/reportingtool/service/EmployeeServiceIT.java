@@ -82,4 +82,24 @@ public class EmployeeServiceIT extends AbstractIntegrationTest {
         Assert.assertEquals("email1@exus.co.uk", employeeDetailsResDto.getEmail());
         Assert.assertEquals("FEMALE", employeeDetailsResDto.getGender());
     }
+
+    @Test
+    public void findEmployeeByUsernameTest() {
+        //given
+        Employee employee = EmployeeDataHelper.employee(1L);
+        long id = (Long) entityManager.persistAndGetId(employee);
+
+        //when
+        EmployeeDetailsResDto employeeDetailsResDto = employeeService.findEmployeeByUsername("username1");
+
+        //then
+        Assert.assertNotNull(employeeDetailsResDto);
+        Assert.assertNotNull(employeeDetailsResDto.getId());
+        Assert.assertEquals("MS", employeeDetailsResDto.getTitle());
+        Assert.assertEquals("firstName", employeeDetailsResDto.getFirstName());
+        Assert.assertEquals("lastName", employeeDetailsResDto.getLastName());
+        Assert.assertEquals("username1", employeeDetailsResDto.getUsername());
+        Assert.assertEquals("email1@exus.co.uk", employeeDetailsResDto.getEmail());
+        Assert.assertEquals("FEMALE", employeeDetailsResDto.getGender());
+    }
 }

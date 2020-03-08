@@ -12,4 +12,6 @@ public interface EmployeeService extends FieldValueExists {
     EmployeeDetailsResDto createEmployee(CreateEmployeeReqDto createEmployeeReqDto);
 
     EmployeeDetailsResDto editEmployee(Long employeeId, EditEmployeeReqDto createNewEmployeeReqDto);
+
+    EmployeeDetailsResDto findEmployeeByUsername(String username);
 }

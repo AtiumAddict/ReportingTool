@@ -36,4 +36,10 @@ public class EmployeeController {
         log.info("findEmployeeById with id {}", employeeId);
         return employeeService.findEmployeeById(employeeId);
     }
+
+    @GetMapping
+    public EmployeeDetailsResDto findEmployeeByUsername(String username) {
+        log.info("findEmployeeByUsername with username {}", username);
+        return employeeService.findEmployeeByUsername(username);
+    }
 }
