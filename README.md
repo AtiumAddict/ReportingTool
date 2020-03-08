@@ -131,7 +131,7 @@ There are 3 controllers: Employee Controller, Report Controller, Employee Report
 	}
 * deleteReport: DELETE employees/{employeeId}/reports/{reportId}: Delete the report with the given reportId (which belongs to the employee with the given employeeId).
 
-## Acknowledgments
+### Acknowledgments
 
 The code and architecture of this project would have been a lot worse if I couldn't rely on an exemplary Spring web application designed by my ex-team leader, Chris Lytsikas.
 
